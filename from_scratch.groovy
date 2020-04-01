@@ -1,5 +1,11 @@
 node {
-	properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([cron('* * * * *')])])
+	properties([
+		// Below line sets "Discard Builds more than 5"
+		buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
+		
+		// Below line triggers this job every minute
+		pipelineTriggers([cron('* * * * *')])
+		])
 
 
 	stage("Stage1"){
