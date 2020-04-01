@@ -13,7 +13,7 @@ node {
 		sh """
 		ssh centos@jenkins_worker1.acirrustech.com         sudo yum install httpd -y
 		scp -r *  centos@jenkins_worker1.acirrustech.com:/tmp
-		ssh centos@jenkins_worker1.acirrustech.com         sudo cp -r /tmp/* /var/www/html/
+		ssh centos@jenkins_worker1.acirrustech.com         sudo cp -r /tmp/index.html /var/www/html/
 		ssh centos@jenkins_worker1.acirrustech.com         sudo systemctl start httpd 
 		"""
 }
