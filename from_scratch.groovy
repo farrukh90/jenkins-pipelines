@@ -36,7 +36,7 @@ node {
 	}
 		//Restarts web server
 	stage("Restart web server"){
-		sh "ssh centos@dev1.acirrustech.com                 sudo systemctl restart httpd"
+		sh "ssh centos@${ENVIR}               sudo systemctl restart httpd"
 	}
 
 		//Sends a message to slack
