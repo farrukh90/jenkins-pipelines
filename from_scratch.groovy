@@ -6,10 +6,8 @@ node {
 		// Below line triggers this job every minute
 		pipelineTriggers([pollSCM('* * * * *')])
 		])
-
-	
-	stage("Stage1"){
-		echo "hello"
+	stage("Pull Repo"){
+		git   'https://github.com/farrukh90/cool_website.git'
 }
 	stage("Stage2"){
 		echo "hello"
