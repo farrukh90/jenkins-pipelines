@@ -11,9 +11,9 @@ node {
 }
 	stage("Install Prerequisites"){
 		sh """
-		ssh jenkins_worker1.acirrustech.com sudo yum install httpd -y
-		ssh jenkins_worker1.acirrustech.comsudo cp -r *  /var/www/html/
-		ssh jenkins_worker1.acirrustech.com sudo systemctl start httpd 
+		ssh centos@jenkins_worker1.acirrustech.com         sudo yum install httpd -y
+		ssh centos@jenkins_worker1.acirrustech.com         sudo cp -r *  /var/www/html/
+		ssh centos@jenkins_worker1.acirrustech.com         sudo systemctl start httpd 
 		"""
 }
 	stage("Stage3"){
