@@ -18,6 +18,5 @@ node {
 }
 	stage("Stage5"){
 		echo "hello"
-        build 'non existing'
 	}
 }
