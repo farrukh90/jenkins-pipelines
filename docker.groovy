@@ -49,6 +49,7 @@ node {
 			ws {
 				withDockerContainer('centos') {
 					echo "Hello"
+                    sleep 20
 				}
 			}
 		}
