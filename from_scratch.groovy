@@ -13,7 +13,7 @@ node {
 			'stage1.acirrustech.com', 
 			'prod1.acirrustech.com'], 
 			description: 'Please choose an environment', 
-			name: 'ENVIR')]),
+			name: 'ENVIR'),
 
 			// Asks for version
 			choice(choices: [
@@ -24,6 +24,7 @@ node {
 				'v0.5'], 
 			description: 'Which version should we deploy?', 
 			name: 'Version')
+			])
 		])
 
 		// Pulls a repo from developer
