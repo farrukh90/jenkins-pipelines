@@ -3,18 +3,17 @@ node {
 		[parameters(
 			[choice(choices: 
 			[
-				'0.1', 
-				'0.2', 
-				'0.3', 
-				'0.4', 
-				'0.5'], 
+				'version/0.1', 
+				'version/0.2', 
+				'version/0.3', 
+				'version/0.4', 
+				'version/0.5'], 
 	description: 'Which version of the app should I deploy? ', 
 	name: 'Version')])])
 	stage("Stage1"){
 		timestamps {
 			ws {
-				checkout([$class: 'GitSCM', branches: [[name: 'dev']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/fuchicorp/artemis.git']]])
-		}
+                checkout([$class: 'GitSCM', branches: [[name: '${Version}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/fuchicorp/artemis.git']]])		}
 	}
 }
 	stage("Get Credentials"){
