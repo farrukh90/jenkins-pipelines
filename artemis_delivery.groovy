@@ -15,15 +15,7 @@ node {
 				'10',
 			], 
 		description: 'Which version of the app should I deploy? ', 
-		name: 'Version'), 
-		choice(choices: 
-			[
-			'dev1.acirrustech.com', 
-			'qa1.acirrustech.com', 
-			'stage1.acirrustech.com', 
-			'prod1.acirrustech.com'], 
-			description: 'Please provide an environment to build the application', 
-            name: 'ENVIR')])
+		name: 'Version')])])
 		stage("Stage1"){
 			timestamps {
 				ws {
