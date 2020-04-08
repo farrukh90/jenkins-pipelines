@@ -18,7 +18,7 @@ node {
 		name: 'Version'), 
 	choice(choices: 
 	[
-		'${ENVIR}', 
+		'dev1.acirrustech.com', 
 		'qa1.acirrustech.com', 
 		'stage1.acirrustech.com', 
 		'prod1.acirrustech.com'], 
