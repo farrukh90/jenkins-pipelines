@@ -64,9 +64,29 @@ node {
 			ws {
 					echo "Slack"
 					//slackSend color: '#BADA55', message: 'Hello, World!'
-				}
-			}
+            }
+        }
+    }
+    	stage("Authenticate"){
+		timestamps {
+			ws {
+				sh '''
+					ssh centos@dev1.acirrustech.com $(aws ecr get-login --no-include-email --region us-east-1)
+					'''
 		}
 	}
+}
+	stage("Run Container"){
+		timestamps {
+			ws {
+				sh '''
+					ssh centos@dev1.acirrustech.com docker run 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
+					'''
+		}
+	}
+}
+
+
+}
 
 	
