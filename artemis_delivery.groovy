@@ -24,7 +24,6 @@ node {
 			'prod1.acirrustech.com'], 
 			description: 'Please provide an environment to build the application', 
             name: 'ENVIR')])
-            ])
 		stage("Stage1"){
 			timestamps {
 				ws {
