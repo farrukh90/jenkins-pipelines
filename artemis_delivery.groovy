@@ -29,7 +29,6 @@ node {
 		timestamps {
 			ws {
 				sh '''
-                if (${Version} = 'version/01')
 					docker build -t artemis:${Version} .
 					'''
 		    }
