@@ -76,7 +76,7 @@ node {
 		}
 	}
 }
-	stage("Run Container"){
+	stage("Clean Up"){
 		timestamps {
 			ws {
 			    try {
@@ -91,11 +91,18 @@ node {
 			    } catch(e) {
                     println("Script failed with error: ${e}")
                 }
-				sh '''
+            }
+        }
+    }
+    stage("Run"){
+        timestamps {
+            ws {
+                sh '''
 					ssh centos@dev1.acirrustech.com docker run -dti -p 5001:5000 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
 				'''
             }
         }
     }
+
 }
 	
