@@ -3,11 +3,11 @@ node {
 		[parameters(
 			[choice(choices: 
 			[
-				'version/0.1', 
-				'version/0.2', 
-				'version/0.3', 
-				'version/0.4', 
-				'version/0.5'], 
+				'0.1', 
+				'0.2', 
+				'0.3', 
+				'0.4', 
+				'0.5'], 
 	description: 'Which version of the app should I deploy? ', 
 	name: 'Version')])])
 	stage("Stage1"){
