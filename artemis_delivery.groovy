@@ -80,7 +80,7 @@ node {
 		timestamps {
 			ws {
 				sh '''
-					ssh centos@dev1.acirrustech.com docker rm -f $(docker ps  | awk '{print $1}' | grep -v C)
+					ssh centos@dev1.acirrustech.com docker rm -f $(docker ps  | awk '{print $1}' | grep -v C) 2> /dev/null
 					'''
             }
         }
