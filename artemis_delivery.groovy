@@ -80,7 +80,7 @@ node {
 		timestamps {
 			ws {
 				sh '''
-					ssh centos@dev1.acirrustech.com docker run -dti -p 5000:5001 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
+					ssh centos@dev1.acirrustech.com docker run -dti -p 5001:5000 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
 					'''
 		}
 	}
