@@ -79,12 +79,23 @@ node {
 	stage("Run Container"){
 		timestamps {
 			ws {
+			    try {
+			        sh '''
+                    #!/bin/bash
+			        IMAGES=$(ssh centos@dev1.acirrustech.com docker ps -aq) 
+			        for i in \$IMAGES; do
+			            ssh centos@dev1.acirrustech.com docker stop \$i
+                        ssh centos@dev1.acirrustech.com docker rm \$i
+			        done 
+                    '''
+			    } catch(e) {
+                    println("Script failed with error: ${e}")
+                }
 				sh '''
 					ssh centos@dev1.acirrustech.com docker run -dti -p 5001:5000 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
-					'''
+				'''
             }
         }
     }
 }
-
 	
