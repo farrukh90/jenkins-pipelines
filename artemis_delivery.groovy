@@ -15,7 +15,7 @@ node {
 				'10',
 			], 
 		description: 'Which version of the app should I deploy? ', 
-		name: 'Version')]), 
+		name: 'Version'), 
 		choice(choices: 
 			[
 			'dev1.acirrustech.com', 
