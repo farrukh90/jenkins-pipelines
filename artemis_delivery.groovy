@@ -80,6 +80,7 @@ node {
 		timestamps {
 			ws {
 				sh '''
+                    ssh centos@dev1.acirrustech.com docker stop $(docker ps -aq 2>/dev/null) 2>/dev/null&& docker rm $(docker ps -aq 2>/dev/null) 2>/dev/null
 					ssh centos@dev1.acirrustech.com docker run -dti -p 5001:5000 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
 					'''
 		}
