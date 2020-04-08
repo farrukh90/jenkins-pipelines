@@ -44,6 +44,23 @@ node {
 				}
 			}
 		}
+    stage("Push Image"){
+	    timestamps {
+			ws {
+				sh '''
+					docker push 713287746880.dkr.ecr.us-east-1.amazonaws.com/artemis:${Version}
+					'''
+				}
+			}
+		}
+	stage("Send slack notifications"){
+		timestamps {
+			ws {
+					echo "Slack"
+					//slackSend color: '#BADA55', message: 'Hello, World!'
+				}
+			}
+		}
+	}
 
-}
 	
