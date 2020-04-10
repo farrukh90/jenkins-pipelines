@@ -3,11 +3,9 @@ node {
 		[parameters(
 			[choice(choices: 
 			[
-				'golden_image', 
-				'vault', 
 				'elk', 
-				'gitlab',
-				'source_ami_filter'], 
+
+			], 
 		description: 'What would you like to build? ', 
 		name: 'TOOL'), 
 			choice(choices: 
@@ -34,7 +32,7 @@ node {
 		timestamps {
 			ws {
 				sh "packer version"
-				sh "packer build --var-file tools/configurations/regions/${REGION}/centos.json tools/${TOOL}.json"
+				sh "packer build --var region=${REGION}  --var-file   elk/variable.json  tools/elk.json"
 		}
 	}
 }
