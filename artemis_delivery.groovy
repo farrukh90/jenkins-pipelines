@@ -1,5 +1,5 @@
 def dev = "dev1.acirrustech.com"
-
+def qa  = "qa1.acirrustech.com"
 
 node {
 	
@@ -23,7 +23,7 @@ node {
 	choice(choices: 
 	[
 		'dev1.acirrustech.com', 
-		'qa1.acirrustech.com', 
+		'', 
 		'stage1.acirrustech.com', 
 		'prod1.acirrustech.com'], 
 	description: 'Please provide an environment to build the application', 
