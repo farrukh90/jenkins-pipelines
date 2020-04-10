@@ -26,10 +26,10 @@ node {
 		name: 'Version'), 
 	choice(choices: 
 	[
-		'dev1.acirrustech.com', 
-		'', 
-		'stage1.acirrustech.com', 
-		'prod1.acirrustech.com'], 
+		'${stage1}', 
+		'${dev1}', 
+		'${qa1}', 
+		'${prod1}], 
 	description: 'Please provide an environment to build the application', 
 	name: 'ENVIR')])])
 
