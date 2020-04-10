@@ -29,7 +29,8 @@ node {
 		'${stage1}', 
 		'${dev1}', 
 		'${qa1}', 
-		'${prod1}], 
+		'${prod1}'
+		], 
 	description: 'Please provide an environment to build the application', 
 	name: 'ENVIR')])])
 
