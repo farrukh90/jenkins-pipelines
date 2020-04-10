@@ -1,6 +1,8 @@
 def dev = "dev1.acirrustech.com"
 def qa  = "qa1.acirrustech.com"
 def prod = "prod1.acirrustech.com"
+def stage1 = "stage1.acirrustech.com"
+
 
 
 node {
