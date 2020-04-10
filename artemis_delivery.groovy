@@ -1,7 +1,7 @@
-def dev = "dev1.acirrustech.com"
-def qa  = "qa1.acirrustech.com"
-def prod = "prod1.acirrustech.com"
+def dev1 = "dev1.acirrustech.com"
+def qa1  = "qa1.acirrustech.com"
 def stage1 = "stage1.acirrustech.com"
+def prod1 = "prod1.acirrustech.com"
 
 
 
