@@ -1,3 +1,5 @@
+def dev = "dev1.acirrustech.com"
+
 
 node {
 	
