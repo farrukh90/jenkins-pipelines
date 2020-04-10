@@ -1,9 +1,9 @@
-def dev = 'dev1.acirrustech.com'
-def qa = 'qa1.acirrustech.com'
-def stage = 'stage1.acirrustech.com'
-def prod = 'prod1.acirrustech.com'
 
 node {
+	def dev = 'dev1.acirrustech.com'
+	def qa = 'qa1.acirrustech.com'
+	def stage = 'stage1.acirrustech.com'
+	def prod = 'prod1.acirrustech.com'
 	properties(
 		[parameters([
             choice(choices: 
