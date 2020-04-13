@@ -1,3 +1,4 @@
+def deployer(ENVIR){
 node {
 	stage("Stage1"){
 		echo "hello"
@@ -14,7 +15,7 @@ node {
 		stage("Stage5"){
 	}
 }
-
+}
 
 
 
