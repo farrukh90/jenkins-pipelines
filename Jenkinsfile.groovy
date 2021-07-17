@@ -1,5 +1,7 @@
 node {
-    properties([pipelineTriggers([cron('*/5 * * * *')])])
+    properties([
+        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
+        pipelineTriggers([cron('*/5 * * * *')])])
 	stage("Clone a Repo"){
 		timestamps {
             git 'https://github.com/farrukh90/jenkins-class-packer.git'
