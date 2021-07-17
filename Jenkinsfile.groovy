@@ -15,4 +15,8 @@ node {
 	stage("Notify"){
 		slackSend channel: 'general', message: 'Job has failed or completed'
 	}
+    stage("Email"){
+		mail bcc: '', body: '''Hi, 
+The job completed or failed''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job PipelineFromScratch', to: 'farrukhsadykov@gmail.com'
+	}
 }
