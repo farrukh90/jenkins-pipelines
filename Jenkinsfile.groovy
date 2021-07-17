@@ -3,8 +3,14 @@ node {
 	stage("Clone a Repo"){
 		git 'https://github.com/farrukh90/jenkins-class-packer.git'
 }
-	stage("Stage2"){
-		echo "hello"
+	stage("Run Script"){
+		sh '''#!/bin/bash
+			if [ ! -d /tmp/foo ]; 
+			then
+				echo "Folder not found!"
+				echo "Creating a folder"
+				mkdir -p "/tmp/foo"
+            fi'''
 }
 	stage("Stage3"){
 		echo "hello"
