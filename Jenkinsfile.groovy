@@ -1,6 +1,19 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
-    parameters([choice(choices: ['1.0.0', '2.0.0', '3.0.0'], description: 'Please choose version to deploy', name: 'APP_VERSION'), 
+    parameters([choice(choices: [
+        '1.0.0', 
+        '2.0.0', 
+        '3.0.0',
+        '4.0.0',
+        '5.0.0',
+        '6.0.0',
+        '7.0.0',
+        '8.0.0',
+        '9.0.0',
+        '10.0.0',
+        '11.0.0',
+    ], 
+    description: 'Please choose version to deploy', name: 'APP_VERSION'), 
     string(defaultValue: 'PLEASE_ENTER_IP', description: 'Please provide IP to deploy', name: 'ENVIR', trim: false)]), 
     pipelineTriggers([cron('*/5 * * * *')])])
       
