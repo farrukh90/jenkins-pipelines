@@ -1,15 +1,12 @@
+properties([
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
+    parameters([choice(choices: ['1.0.0', '2.0.0', '3.0.0'], description: 'Please choose version to deploy', name: 'APP_VERSION'), 
+    string(defaultValue: 'PLEASE_ENTER_IP', description: 'Please provide IP to deploy', name: 'ENVIR', trim: false)]), 
+    pipelineTriggers([cron('*/5 * * * *')])])
+      
+      
+      
 node {
-  properties([
-      buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
-      parameters([choice(choices: ['1.0.0', '2.0.0', '3.0.0'], description: 'Please choose version to deploy', name: 'APP_VERSION'), 
-      string(defaultValue: 'PLEASE_ENTER_IP', description: 'Please provide IP to deploy', name: 'ENVIR', trim: false)]), 
-      pipelineTriggers([cron('*/5 * * * *')])])
-
-
-
-
-
-
 	stage("Clone a Repo"){
 		timestamps {
             git 'https://github.com/farrukh90/jenkins-class-packer.git'
