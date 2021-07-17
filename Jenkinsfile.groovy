@@ -9,7 +9,7 @@ properties([
 node {
 	stage("Clone a Repo"){
 		timestamps {
-            git 'https://github.com/farrukh90/jenkins-class-packer.git'
+            checkout([$class: 'GitSCM', branches: [[name: '${APP_VERSION}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/artemis.git']]])
         }
     }
 	stage("Run Script"){
