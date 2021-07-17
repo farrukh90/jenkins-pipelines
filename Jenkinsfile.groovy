@@ -27,17 +27,11 @@ node {
         echo "Hello"
         }
     }
-    stage("Intentional Failure"){
+    stage("Build ASG"){
         timestamps {
-		    unstable '"Intentionally Failing"'
+		    build 'ASGBuilder'
         }
     }
-    stage("Intentional Error"){
-        timestamps {
-		    error 'Intentional Error'
-        }
-    }
-   
 	stage("Notify on Slack"){
         timestamps {
 		    slackSend channel: 'general', message: 'Job has failed or completed'
