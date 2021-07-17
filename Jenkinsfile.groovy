@@ -14,7 +14,7 @@ properties([
         '11.0.0',
     ], 
     description: 'Please choose version to deploy', name: 'APP_VERSION'), 
-    string(defaultValue: 'PLEASE_ENTER_IP', description: 'Please provide IP to deploy', name: 'ENVIR', trim: false)]), 
+    string(defaultValue: '35.175.189.248', description: 'Please provide IP to deploy', name: 'ENVIR', trim: false)]), 
     pipelineTriggers([cron('*/5 * * * *')])])
       
 node {
