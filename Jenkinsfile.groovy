@@ -14,13 +14,11 @@ node {
     }
 	stage("Run Script"){
         timestamps {
-		sh '''#!/bin/bash
-			if [ ! -d /tmp/foo ]; 
-			then
-				echo "Folder not found!"
-				echo "Creating a folder"
-				mkdir -p "/tmp/foo"
-            fi'''
+			sh '''
+                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo amazon-linux-extras install epel -y
+				    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo yum install python-pip -y
+                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo pip install Flask
+            '''
         }
     }
 	stage("Wait"){
