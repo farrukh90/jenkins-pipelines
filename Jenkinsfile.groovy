@@ -27,6 +27,12 @@ node {
         echo "Hello"
         }
     }
+    stage("Intentional Failure"){
+        timestamps {
+		    unstable '"Intentionally Failing"'
+        }
+    }
+   
 	stage("Notify on Slack"){
         timestamps {
 		    slackSend channel: 'general', message: 'Job has failed or completed'
