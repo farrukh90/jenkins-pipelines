@@ -1,8 +1,10 @@
 node {
     properties([pipelineTriggers([cron('*/5 * * * *')])])
 	stage("Clone a Repo"){
-		git 'https://github.com/farrukh90/jenkins-class-packer.git'
-}
+		timestamps {
+            git 'https://github.com/farrukh90/jenkins-class-packer.git'
+        }
+    }
 	stage("Run Script"){
 		sh '''#!/bin/bash
 			if [ ! -d /tmp/foo ]; 
