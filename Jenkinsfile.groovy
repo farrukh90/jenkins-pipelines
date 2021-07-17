@@ -12,31 +12,24 @@ node {
             checkout([$class: 'GitSCM', branches: [[name: '${APP_VERSION}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/artemis.git']]])
         }
     }
-	stage("Run Script"){
+	stage("Install Prerequisites of Artemis"){
         timestamps {
             sshagent(['ec2-user']) {
                 sh '''
-                        ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo amazon-linux-extras install epel -y
-                        ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo yum install python-pip -y
-                        ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo pip install Flask
+                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo amazon-linux-extras install epel -y
+                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo yum install python-pip -y
+                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo pip install Flask
                 '''
             }
         }
     }
-	stage("Wait"){
+    stage("Copy Artemis"){
         timestamps {
-		    sleep 5
-        }
-    }
-	stage("Production Deployment Stage"){
-        timestamps {
-		// input 'Should I proceed with Producation Deployment?'
-        echo "Hello"
-        }
-    }
-    stage("Build ASG"){
-        timestamps {
-		    build 'ASGBuilder'
+		   sshagent(['ec2-user']) {
+                sh '''
+                    scp -r * ec2-user@${ENVIR}:/tmp
+                '''
+            }
         }
     }
 	stage("Notify on Slack"){
