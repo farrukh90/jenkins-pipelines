@@ -12,7 +12,7 @@ node {
 	stage("Stage4"){
 		echo "hello"
 }
-	stage("Stage5"){
-		echo "hello"
+	stage("Notify"){
+		slackSend channel: 'general', message: 'Job has failed or completed'
 	}
 }
