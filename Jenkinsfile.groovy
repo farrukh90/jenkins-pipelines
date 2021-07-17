@@ -4,8 +4,6 @@ properties([
     string(defaultValue: 'PLEASE_ENTER_IP', description: 'Please provide IP to deploy', name: 'ENVIR', trim: false)]), 
     pipelineTriggers([cron('*/5 * * * *')])])
       
-      
-      
 node {
 	stage("Clone a Repo"){
 		timestamps {
