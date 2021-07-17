@@ -32,6 +32,15 @@ node {
             }
         }
     }
+    stage("Run Artemis"){
+        timestamps {
+		   sshagent(['ec2-user']) {
+                sh '''
+                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} nohup python /tmp/artemis.py &
+                '''
+            }
+        }
+    }
 	stage("Notify on Slack"){
         timestamps {
 		    slackSend channel: 'general', message: 'Job has failed or completed'
