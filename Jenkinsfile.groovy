@@ -14,11 +14,13 @@ node {
     }
 	stage("Run Script"){
         timestamps {
-			sh '''
-                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo amazon-linux-extras install epel -y
-				    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo yum install python-pip -y
-                    ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo pip install Flask
-            '''
+            sshagent(['ec2-user']) {
+                sh '''
+                        ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo amazon-linux-extras install epel -y
+                        ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo yum install python-pip -y
+                        ssh -o StrictHostKeyChecking=no ec2-user@${ENVIR} sudo pip install Flask
+                '''
+            }
         }
     }
 	stage("Wait"){
