@@ -10,7 +10,8 @@ node {
 		echo "hello"
 }
 	stage("Production Deployment Stage"){
-		input 'Should I proceed with Producation Deployment?'
+		// input 'Should I proceed with Producation Deployment?'
+        echo "Hello"
 }
 	stage("Notify on Slack"){
 		slackSend channel: 'general', message: 'Job has failed or completed'
