@@ -6,6 +6,7 @@ node {
         }
     }
 	stage("Run Script"){
+        timestamps {
 		sh '''#!/bin/bash
 			if [ ! -d /tmp/foo ]; 
 			then
@@ -13,19 +14,28 @@ node {
 				echo "Creating a folder"
 				mkdir -p "/tmp/foo"
             fi'''
-}
+        }
+    }
 	stage("Wait"){
-		sleep 5
-}
+        timestamps {
+		    sleep 5
+        }
+    }
 	stage("Production Deployment Stage"){
+        timestamps {
 		// input 'Should I proceed with Producation Deployment?'
         echo "Hello"
-}
+        }
+    }
 	stage("Notify on Slack"){
-		slackSend channel: 'general', message: 'Job has failed or completed'
+        timestamps {
+		    slackSend channel: 'general', message: 'Job has failed or completed'
+        }
 	}
     stage("Email"){
+        timestamps {
 		mail bcc: '', body: '''Hi, 
                 The job completed or failed''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job PipelineFromScratch', to: 'farrukhsadykov@gmail.com'
+        }
 	}
 }
