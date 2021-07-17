@@ -12,8 +12,8 @@ node {
 				mkdir -p "/tmp/foo"
             fi'''
 }
-	stage("Stage3"){
-		echo "hello"
+	stage("Wait"){
+		sleep 5
 }
 	stage("Production Deployment Stage"){
 		// input 'Should I proceed with Producation Deployment?'
