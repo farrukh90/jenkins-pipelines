@@ -32,6 +32,11 @@ node {
 		    unstable '"Intentionally Failing"'
         }
     }
+    stage("Intentional Error"){
+        timestamps {
+		    error 'Intentional Error'
+        }
+    }
    
 	stage("Notify on Slack"){
         timestamps {
