@@ -1,7 +1,7 @@
 node {
     properties([pipelineTriggers([cron('*/5 * * * *')])])
-	stage("Stage1"){
-		echo "hello"
+	stage("Clone a Repo"){
+		git 'https://github.com/farrukh90/jenkins-class-packer.git'
 }
 	stage("Stage2"){
 		echo "hello"
